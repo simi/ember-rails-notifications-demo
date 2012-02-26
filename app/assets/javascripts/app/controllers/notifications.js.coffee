@@ -4,7 +4,7 @@ EmberTest.Notifications = Ember.ArrayController.create
 
   refresh: -> (
     from = this.get('from')
-    url = "/notifications/?from=#{from}"
+    url = $('meta[name="notifications-url"]').attr('content') + "?from=#{from}"
     $.getJSON(url,  (data) ->
       EmberTest.Notifications.pushObject(EmberTest.Notification.create(notification)) for notification in data
     )
