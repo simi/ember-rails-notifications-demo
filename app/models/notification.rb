@@ -1,3 +1,3 @@
 class Notification < ActiveRecord::Base
-  scope :from, ->(from) {where('created_at > ?', Time.at(from.to_i))}
+  scope :updated_after, ->(from) {where('created_at > ?', Time.at(from.to_i))}
 end
